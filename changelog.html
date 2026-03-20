@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog - ArchCosta OS</title>
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --accent: #00d2ff;
+            --bg: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #f8f9fa;
+            --text-muted: #cbd5e1;
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(13, 110, 253, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(13, 110, 253, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            backdrop-filter: blur(20px);
+            background: rgba(15, 23, 42, 0.7);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .changelog-container {
+            max-width: 900px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .changelog-item {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .changelog-item:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .repo-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #60a5fa;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .commit-msg {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .commit-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer {
+            padding: 80px 0 40px;
+            background: rgba(15, 23, 42, 0.9);
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">🚀 ArchCosta</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html#editions">Editions</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active" href="changelog.html">Changelog</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="https://github.com/archcosta-os/archcosta-wiki">Wiki</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="changelog-container">
+        <h1 class="display-4 fw-800 mb-5" data-aos="fade-right">Updates & Evolution</h1>
+        <div id="changelog-content">
+            <div class="text-secondary">Syncing with GitHub repositories...</div>
+        </div>
+    </div>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <p class="text-secondary mb-0">&copy; 2026 ArchCosta Linux Team.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        async function fetchChangelog() {
+            const repos = ['archcosta', 'archcosta-pkgbuilds', 'archcosta-settings', 'archcosta-applications'];
+            const container = document.getElementById('changelog-content');
+            let allCommits = [];
+
+            try {
+                for (const repo of repos) {
+                    const response = await fetch(`https://api.github.com/repos/archcosta-os/${repo}/commits?per_page=5`);
+                    const commits = await response.json();
+                    allCommits = allCommits.concat(commits.map(c => ({
+                        ...c,
+                        repoName: repo,
+                        date: new Date(c.commit.author.date)
+                    })));
+                }
+
+                allCommits.sort((a, b) => b.date - a.date);
+
+                container.innerHTML = allCommits.slice(0, 20).map((commit, index) => `
+                    <div class="changelog-item" data-aos="fade-up" data-aos-delay="${index * 50}">
+                        <span class="repo-badge">${commit.repoName}</span>
+                        <div class="commit-msg">${commit.commit.message.split('\n')[0]}</div>
+                        <div class="commit-meta">
+                            <i class="far fa-calendar-alt me-1"></i> ${commit.date.toLocaleDateString()} 
+                            <span class="mx-2">•</span>
+                            <i class="far fa-user me-1"></i> ${commit.commit.author.name}
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                container.innerHTML = '<div class="alert alert-danger bg-dark text-danger border-danger">Error fetching updates.</div>';
+            }
+        }
+        fetchChangelog();
+    </script>
+</body>
+</html>

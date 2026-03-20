@@ -18,15 +18,22 @@
         :root {
             --primary: #0d6efd;
             --accent: #00d2ff;
-            --bg: #0a0a0c;
-            --card-bg: rgba(255, 255, 255, 0.03);
+            --bg: #0f172a; /* Deep blue-gray */
+            --card-bg: rgba(255, 255, 255, 0.05);
             --border: rgba(255, 255, 255, 0.1);
             --text: #f8f9fa;
-            --text-muted: #adb5bd;
+            --text-muted: #cbd5e1;
         }
 
         body {
             background-color: var(--bg);
+            /* Gradient Mesh Background */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(13, 110, 253, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(13, 110, 253, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
             color: var(--text);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
@@ -35,8 +42,8 @@
 
         /* Glassmorphism Navigation */
         .navbar {
-            backdrop-filter: blur(15px);
-            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(20px);
+            background: rgba(15, 23, 42, 0.7);
             border-bottom: 1px solid var(--border);
             padding: 1rem 0;
             transition: all 0.3s ease;
@@ -48,11 +55,10 @@
             font-size: 1.5rem;
         }
 
-        /* Immersive Hero Section */
+        /* Hero Section */
         .hero {
             position: relative;
             padding: 160px 0 100px;
-            background: radial-gradient(circle at 50% -20%, rgba(13, 110, 253, 0.15) 0%, transparent 50%);
         }
 
         .hero h1 {
@@ -61,7 +67,7 @@
             letter-spacing: -2px;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #fff 30%, var(--accent));
+            background: linear-gradient(to right, #fff 30%, #60a5fa, #a855f7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -75,7 +81,7 @@
 
         /* Premium Buttons */
         .btn-primary {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, #4f46e5 100%);
             border: none;
             padding: 14px 35px;
             font-weight: 600;
@@ -85,15 +91,14 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 15px 40px rgba(13, 110, 253, 0.4);
-            background: #1a7bff;
         }
 
-        /* Feature Cards (Glassmorphism) */
+        /* Feature Cards (Enhanced Glassmorphism) */
         .feature-card {
             background: var(--card-bg);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border: 1px solid var(--border);
             padding: 40px 30px;
             border-radius: 24px;
@@ -103,29 +108,30 @@
 
         .feature-card:hover {
             transform: translateY(-10px);
-            border-color: rgba(13, 110, 253, 0.4);
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
         }
 
         .icon-box {
             width: 70px;
             height: 70px;
-            background: rgba(13, 110, 253, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 25px;
             font-size: 2rem;
-            color: var(--accent);
+            color: #60a5fa;
             transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .feature-card:hover .icon-box {
             background: var(--primary);
             color: white;
-            transform: scale(1.1);
+            transform: rotate(10deg) scale(1.1);
         }
 
         .section-title {
@@ -138,7 +144,7 @@
         /* Footer */
         .footer {
             padding: 80px 0 40px;
-            background: #050505;
+            background: rgba(15, 23, 42, 0.9);
             border-top: 1px solid var(--border);
         }
 
@@ -149,7 +155,7 @@
         }
 
         .social-link:hover {
-            color: var(--accent);
+            color: #60a5fa;
             transform: scale(1.1);
         }
 
@@ -182,7 +188,7 @@
         <div class="container">
             <div data-aos="fade-up" data-aos-duration="1000">
                 <h1 class="display-1">Performance Without Compromise.</h1>
-                <p class="lead">ArchCosta is a highly optimized, gaming-ready Arch Linux distribution powered by the CachyOS kernel and custom desktop environments.</p>
+                <p class="lead">ArchCosta is a highly optimized Arch Linux distribution powered by the CachyOS kernel and custom desktop environments.</p>
                 <div class="d-flex justify-content-center gap-3">
                     <a href="https://github.com/archcosta-os/archcosta/releases" class="btn btn-primary btn-lg">
                         <i class="fas fa-download me-2"></i>Download ISO
@@ -200,53 +206,53 @@
                     <div class="feature-card text-center">
                         <div class="icon-box"><i class="fas fa-bolt"></i></div>
                         <h4 class="mb-3">XFCE Edition</h4>
-                        <p class="text-secondary">Our flagship edition. Modern, lightning-fast, and deeply optimized for high-end gaming and multitasking.</p>
+                        <p class="text-secondary">Our flagship experience. Deeply optimized for gaming and low-latency multitasking.</p>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="feature-card text-center">
                         <div class="icon-box"><i class="fas fa-feather"></i></div>
                         <h4 class="mb-3">MATE Edition</h4>
-                        <p class="text-secondary">Traditional desktop simplicity meets extreme performance. Perfect for users who want zero distractions.</p>
+                        <p class="text-secondary">Traditional desktop simplicity meets extreme performance for a focused workflow.</p>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="feature-card text-center">
                         <div class="icon-box"><i class="fas fa-cube"></i></div>
                         <h4 class="mb-3">Cinnamon Edition</h4>
-                        <p class="text-secondary">A familiar, polished environment with modern features and smooth animations for a premium feel.</p>
+                        <p class="text-secondary">A polished environment with modern features and smooth animations for a premium feel.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="tools" class="py-5 my-5 bg-dark">
+    <section id="tools" class="py-5 my-5">
         <div class="container py-5">
-            <h2 class="text-center section-title text-white" data-aos="fade-up">Built-in Power Tools.</h2>
+            <h2 class="text-center section-title" data-aos="fade-up">Powerful Utilities.</h2>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
                     <div class="feature-card">
-                        <h5>🛡️ Assistant</h5>
-                        <p class="small text-secondary">Simplified system maintenance and configuration GUI.</p>
+                        <h5 class="text-info">🛡️ Assistant</h5>
+                        <p class="small text-secondary">A central GUI for simplified system maintenance and configuration.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
                     <div class="feature-card">
-                        <h5>🎮 Gamer</h5>
-                        <p class="small text-secondary">One-click installation for all gaming platforms and tools.</p>
+                        <h5 class="text-primary">🎮 Gamer</h5>
+                        <p class="small text-secondary">One-click installation for all your favorite gaming platforms.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
                     <div class="feature-card">
-                        <h5>🔄 Update</h5>
-                        <p class="small text-secondary">Smart update wrapper with mirror and keyring management.</p>
+                        <h5 class="text-success">🔄 Update</h5>
+                        <p class="small text-secondary">Smart update wrapper with automatic mirror and keyring management.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
                     <div class="feature-card">
-                        <h5>🌡️ Kernels</h5>
-                        <p class="small text-secondary">Effortlessly switch between optimized kernel versions.</p>
+                        <h5 class="text-warning">🌡️ Kernels</h5>
+                        <p class="small text-secondary">Effortlessly switch between highly optimized kernel versions.</p>
                     </div>
                 </div>
             </div>
