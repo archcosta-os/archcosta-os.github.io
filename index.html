@@ -18,7 +18,7 @@
         :root {
             --primary: #0d6efd;
             --accent: #00d2ff;
-            --bg: #0f172a; /* Deep blue-gray */
+            --bg: #0f172a;
             --card-bg: rgba(255, 255, 255, 0.05);
             --border: rgba(255, 255, 255, 0.1);
             --text: #f8f9fa;
@@ -27,7 +27,6 @@
 
         body {
             background-color: var(--bg);
-            /* Gradient Mesh Background */
             background-image: 
                 radial-gradient(at 0% 0%, rgba(13, 110, 253, 0.15) 0px, transparent 50%),
                 radial-gradient(at 50% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
@@ -40,13 +39,11 @@
             line-height: 1.6;
         }
 
-        /* Glassmorphism Navigation */
         .navbar {
             backdrop-filter: blur(20px);
             background: rgba(15, 23, 42, 0.7);
             border-bottom: 1px solid var(--border);
             padding: 1rem 0;
-            transition: all 0.3s ease;
         }
 
         .navbar-brand {
@@ -55,7 +52,6 @@
             font-size: 1.5rem;
         }
 
-        /* Hero Section */
         .hero {
             position: relative;
             padding: 160px 0 100px;
@@ -79,7 +75,6 @@
             color: var(--text-muted);
         }
 
-        /* Premium Buttons */
         .btn-primary {
             background: linear-gradient(135deg, var(--primary) 0%, #4f46e5 100%);
             border: none;
@@ -95,7 +90,6 @@
             box-shadow: 0 15px 40px rgba(13, 110, 253, 0.4);
         }
 
-        /* Feature Cards (Enhanced Glassmorphism) */
         .feature-card {
             background: var(--card-bg);
             backdrop-filter: blur(12px);
@@ -141,7 +135,6 @@
             margin-bottom: 4rem;
         }
 
-        /* Footer */
         .footer {
             padding: 80px 0 40px;
             background: rgba(15, 23, 42, 0.9);
@@ -159,7 +152,6 @@
             transform: scale(1.1);
         }
 
-        /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
         }
@@ -188,11 +180,10 @@
         <div class="container">
             <div data-aos="fade-up" data-aos-duration="1000">
                 <h1 class="display-1">Performance Without Compromise.</h1>
-                <p class="lead">ArchCosta is a highly optimized Arch Linux distribution powered by the CachyOS kernel and custom desktop environments.</p>
+                <p class="lead">ArchCosta is a highly optimized Arch Linux distribution powered by the rock-solid Linux kernel and custom desktop environments.</p>
                 <div class="d-flex justify-content-center gap-3">
                     <a href="https://github.com/archcosta-os/archcosta/releases" class="btn btn-primary btn-lg">
-                        <i class="fas fa-download me-2"></i>Download ISO
-                    </a>
+                        <i class="fas fa-download me-2"></i>Download ISO</a>
                 </div>
             </div>
         </div>
@@ -239,19 +230,19 @@
                 </div>
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
                     <div class="feature-card">
-                        <h5 class="text-primary">🎮 Gamer</h5>
+                        <h5>🎮 Gamer</h5>
                         <p class="small text-secondary">One-click installation for all your favorite gaming platforms.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
                     <div class="feature-card">
-                        <h5 class="text-success">🔄 Update</h5>
+                        <h5>🔄 Update</h5>
                         <p class="small text-secondary">Smart update wrapper with automatic mirror and keyring management.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
                     <div class="feature-card">
-                        <h5 class="text-warning">🌡️ Kernels</h5>
+                        <h5>🌡️ Kernels</h5>
                         <p class="small text-secondary">Effortlessly switch between highly optimized kernel versions.</p>
                     </div>
                 </div>
