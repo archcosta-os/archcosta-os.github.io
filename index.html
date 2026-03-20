@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArchCosta OS - High-Performance Arch Linux</title>
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --accent: #00d2ff;
+            --bg: #0a0a0c;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #f8f9fa;
+            --text-muted: #adb5bd;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Glassmorphism Navigation */
+        .navbar {
+            backdrop-filter: blur(15px);
+            background: rgba(10, 10, 12, 0.8);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            letter-spacing: -1px;
+            font-size: 1.5rem;
+        }
+
+        /* Immersive Hero Section */
+        .hero {
+            position: relative;
+            padding: 160px 0 100px;
+            background: radial-gradient(circle at 50% -20%, rgba(13, 110, 253, 0.15) 0%, transparent 50%);
+        }
+
+        .hero h1 {
+            font-weight: 800;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff 30%, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+        }
+
+        /* Premium Buttons */
+        .btn-primary {
+            background: var(--primary);
+            border: none;
+            padding: 14px 35px;
+            font-weight: 600;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(13, 110, 253, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(13, 110, 253, 0.4);
+            background: #1a7bff;
+        }
+
+        /* Feature Cards (Glassmorphism) */
+        .feature-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            padding: 40px 30px;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(13, 110, 253, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            background: rgba(13, 110, 253, 0.1);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--accent);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover .icon-box {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .section-title {
+            font-weight: 800;
+            font-size: 2.5rem;
+            letter-spacing: -1px;
+            margin-bottom: 4rem;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 80px 0 40px;
+            background: #050505;
+            border-top: 1px solid var(--border);
+        }
+
+        .social-link {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            transition: 0.3s;
+        }
+
+        .social-link:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">🚀 ArchCosta</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html#editions">Editions</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html#tools">Tools</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="changelog.html">Changelog</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="https://github.com/archcosta-os/archcosta-wiki">Wiki</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-outline-light btn-sm mt-1" href="https://github.com/archcosta-os">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero text-center">
+        <div class="container">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="display-1">Performance Without Compromise.</h1>
+                <p class="lead">ArchCosta is a highly optimized, gaming-ready Arch Linux distribution powered by the CachyOS kernel and custom desktop environments.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="https://github.com/archcosta-os/archcosta/releases" class="btn btn-primary btn-lg">
+                        <i class="fas fa-download me-2"></i>Download ISO
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="editions" class="py-5 my-5">
+        <div class="container py-5">
+            <h2 class="text-center section-title" data-aos="fade-up">Choose Your Experience.</h2>
+            <div class="row g-5">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card text-center">
+                        <div class="icon-box"><i class="fas fa-bolt"></i></div>
+                        <h4 class="mb-3">XFCE Edition</h4>
+                        <p class="text-secondary">Our flagship edition. Modern, lightning-fast, and deeply optimized for high-end gaming and multitasking.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card text-center">
+                        <div class="icon-box"><i class="fas fa-feather"></i></div>
+                        <h4 class="mb-3">MATE Edition</h4>
+                        <p class="text-secondary">Traditional desktop simplicity meets extreme performance. Perfect for users who want zero distractions.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card text-center">
+                        <div class="icon-box"><i class="fas fa-cube"></i></div>
+                        <h4 class="mb-3">Cinnamon Edition</h4>
+                        <p class="text-secondary">A familiar, polished environment with modern features and smooth animations for a premium feel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tools" class="py-5 my-5 bg-dark">
+        <div class="container py-5">
+            <h2 class="text-center section-title text-white" data-aos="fade-up">Built-in Power Tools.</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="feature-card">
+                        <h5>🛡️ Assistant</h5>
+                        <p class="small text-secondary">Simplified system maintenance and configuration GUI.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="feature-card">
+                        <h5>🎮 Gamer</h5>
+                        <p class="small text-secondary">One-click installation for all gaming platforms and tools.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="feature-card">
+                        <h5>🔄 Update</h5>
+                        <p class="small text-secondary">Smart update wrapper with mirror and keyring management.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="feature-card">
+                        <h5>🌡️ Kernels</h5>
+                        <p class="small text-secondary">Effortlessly switch between optimized kernel versions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="mb-4">
+                <a href="https://github.com/archcosta-os" class="social-link"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="text-secondary mb-0">&copy; 2026 ArchCosta Linux Team. Proudly open source.</p>
+            <p class="small text-muted mt-2">Built for the future of desktop performance.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-quad'
+        });
+    </script>
+</body>
+</html>
