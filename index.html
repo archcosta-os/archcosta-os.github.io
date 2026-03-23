@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArchCosta OS - High-Performance Arch Linux</title>
-    <!-- Modern Fonts -->
+    <meta name="description" content="ArchCosta is a professional, performance-tuned distribution based on Arch Linux with multiple desktop environments.">
+    <meta name="keywords" content="Arch Linux, Linux distribution, XFCE, Plasma, Cinnamon, MATE, performance">
+    <meta property="og:title" content="ArchCosta OS">
+    <meta property="og:description" content="Performance-tuned Arch Linux with multiple desktop environments">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
@@ -90,6 +92,17 @@
             box-shadow: 0 15px 40px rgba(13, 110, 253, 0.4);
         }
 
+        .btn-outline-light {
+            border-radius: 12px;
+            padding: 12px 25px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-light:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
         .feature-card {
             background: var(--card-bg);
             backdrop-filter: blur(12px);
@@ -135,6 +148,29 @@
             margin-bottom: 4rem;
         }
 
+        .kernel-badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .specs-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .specs-card h4 {
+            font-weight: 700;
+            color: #60a5fa;
+        }
+
         .footer {
             padding: 80px 0 40px;
             background: rgba(15, 23, 42, 0.9);
@@ -145,6 +181,7 @@
             font-size: 1.5rem;
             color: var(--text-muted);
             transition: 0.3s;
+            margin: 0 10px;
         }
 
         .social-link:hover {
@@ -154,6 +191,19 @@
 
         html {
             scroll-behavior: smooth;
+        }
+
+        .download-dropdown .dropdown-menu {
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+
+        .download-dropdown .dropdown-item {
+            color: var(--text);
+        }
+
+        .download-dropdown .dropdown-item:hover {
+            background: var(--card-bg);
         }
     </style>
 </head>
@@ -166,11 +216,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link px-3" href="index.html#editions">Editions</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="index.html#tools">Tools</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#editions">Editions</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#kernels">Kernels</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#features">Features</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="changelog.html">Changelog</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="https://github.com/archcosta-os/archcosta-wiki">Wiki</a></li>
-                    <li class="nav-item ms-lg-3"><a class="btn btn-outline-light btn-sm mt-1" href="https://github.com/archcosta-os">GitHub</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-primary btn-sm mt-1" href="https://github.com/archcosta-os/archcosta/releases">Download</a></li>
                 </ul>
             </div>
         </div>
@@ -180,10 +231,22 @@
         <div class="container">
             <div data-aos="fade-up" data-aos-duration="1000">
                 <h1 class="display-1">Performance Without Compromise.</h1>
-                <p class="lead">ArchCosta is a highly optimized Arch Linux distribution powered by the Linux kernel and custom desktop environments.</p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="https://github.com/archcosta-os/archcosta/releases" class="btn btn-primary btn-lg">
-                        <i class="fas fa-download me-2"></i>Download ISO</a>
+                <p class="lead">ArchCosta is a professional, performance-tuned distribution based on Arch Linux. Choose from multiple desktop environments and optimized kernels.</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <div class="dropdown download-dropdown">
+                        <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-download me-2"></i>Download ISO
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="https://github.com/archcosta-os/archcosta/releases"><i class="fas fa-fire me-2"></i>XFCE Edition</a></li>
+                            <li><a class="dropdown-item" href="https://github.com/archcosta-os/archcosta/releases"><i class="fas fa-desktop me-2"></i>Plasma Edition</a></li>
+                            <li><a class="dropdown-item" href="https://github.com/archcosta-os/archcosta/releases"><i class="fas fa-leaf me-2"></i>Cinnamon Edition</a></li>
+                            <li><a class="dropdown-item" href="https://github.com/archcosta-os/archcosta/releases"><i class="fas fa-pen me-2"></i>MATE Edition</a></li>
+                        </ul>
+                    </div>
+                    <a href="https://github.com/archcosta-os" class="btn btn-outline-light btn-lg">
+                        <i class="fab fa-github me-2"></i>View on GitHub
+                    </a>
                 </div>
             </div>
         </div>
@@ -191,59 +254,143 @@
 
     <section id="editions" class="py-5 my-5">
         <div class="container py-5">
-            <h2 class="text-center section-title" data-aos="fade-up">Choose Your Experience.</h2>
+            <h2 class="text-center section-title" data-aos="fade-up">Choose Your Desktop Environment.</h2>
             <div class="row g-5">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="feature-card text-center">
-                        <div class="icon-box"><i class="fas fa-bolt"></i></div>
+                        <div class="icon-box"><i class="fas fa-fire"></i></div>
                         <h4 class="mb-3">XFCE Edition</h4>
-                        <p class="text-secondary">Our flagship experience. Deeply optimized for gaming and low-latency multitasking.</p>
+                        <p class="text-secondary">Lightweight and fast desktop, ideal for older hardware and gaming setups.</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="feature-card text-center">
-                        <div class="icon-box"><i class="fas fa-feather"></i></div>
-                        <h4 class="mb-3">MATE Edition</h4>
-                        <p class="text-secondary">Traditional desktop simplicity meets extreme performance for a focused workflow.</p>
+                        <div class="icon-box"><i class="fas fa-desktop"></i></div>
+                        <h4 class="mb-3">Plasma Edition</h4>
+                        <p class="text-secondary">Feature-rich KDE Plasma desktop with modern aesthetics and customization.</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="feature-card text-center">
-                        <div class="icon-box"><i class="fas fa-cube"></i></div>
+                        <div class="icon-box"><i class="fas fa-leaf"></i></div>
                         <h4 class="mb-3">Cinnamon Edition</h4>
-                        <p class="text-secondary">A polished environment with modern features and smooth animations for a premium feel.</p>
+                        <p class="text-secondary">Modern desktop with traditional layout and innovative window management.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-card text-center">
+                        <div class="icon-box"><i class="fas fa-pen-fancy"></i></div>
+                        <h4 class="mb-3">MATE Edition</h4>
+                        <p class="text-secondary">Traditional desktop environment derived from GNOME 2 for a classic experience.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="tools" class="py-5 my-5">
+    <section id="kernels" class="py-5 my-5">
         <div class="container py-5">
-            <h2 class="text-center section-title" data-aos="fade-up">Powerful Utilities.</h2>
+            <h2 class="text-center section-title" data-aos="fade-up">Choose Your Kernel.<span class="kernel-badge">NEW</span></h2>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
                     <div class="feature-card">
-                        <h5 class="text-info">🛡️ Assistant</h5>
-                        <p class="small text-secondary">A central GUI for simplified system maintenance and configuration.</p>
+                        <h5 class="text-info"><i class="fas fa-microchip me-2"></i>Linux (Standard)</h5>
+                        <p class="small text-secondary">Latest stable kernel from kernel.org. Best compatibility.</p>
+                        <span class="badge bg-secondary">Default</span>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
                     <div class="feature-card">
-                        <h5>🎮 Gamer</h5>
-                        <p class="small text-secondary">One-click installation for all your favorite gaming platforms.</p>
+                        <h5 class="text-success"><i class="fas fa-bolt me-2"></i>Linux-Zen</h5>
+                        <p class="small text-secondary">Enhanced kernel with desktop optimizations. Great for gaming.</p>
+                        <span class="badge bg-success">Popular</span>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
                     <div class="feature-card">
-                        <h5 class="text-success">🔄 Update</h5>
-                        <p class="small text-secondary">Smart update wrapper with automatic mirror and keyring management.</p>
+                        <h5 class="text-warning"><i class="fas fa-shield-alt me-2"></i>Linux-LTS</h5>
+                        <p class="small text-secondary">Long-term support kernel. Maximum stability.</p>
+                        <span class="badge bg-warning text-dark">Stable</span>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
                     <div class="feature-card">
-                        <h5 class="text-warning">🌡️ Kernels</h5>
-                        <p class="small text-secondary">Effortlessly switch between highly optimized kernel versions.</p>
+                        <h5 class="text-danger"><i class="fas fa-rocket me-2"></i>Linux-CachyOS</h5>
+                        <p class="small text-secondary">BORE scheduler + performance patches. Maximum performance.</p>
+                        <span class="badge bg-danger">Performance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-5 my-5">
+        <div class="container py-5">
+            <h2 class="text-center section-title" data-aos="fade-up">Powerful Features.</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <h5 class="text-primary"><i class="fas fa-microchip me-2"></i>Optimized Performance</h5>
+                        <p class="text-secondary">Custom kernel tweaks, performance scheduler optimizations, and system tuning out of the box.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <h5 class="text-success"><i class="fas fa-gamepad me-2"></i>Gaming Ready</h5>
+                        <p class="text-secondary">Pre-configured gaming environment with Steam, Wine, and Lutris support. Just install and play.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card">
+                        <h5 class="text-info"><i class="fas fa-install me-2"></i>Easy Installation</h5>
+                        <p class="text-secondary">Calamares graphical installer with guided steps. Be up and running in minutes.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-card">
+                        <h5 class="text-warning"><i class="fas fa-sync me-2"></i>Rolling Release</h5>
+                        <p class="text-secondary">Always up-to-date with latest Arch packages. No version upgrades needed.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-card">
+                        <h5 class="text-danger"><i class="fas fa-shield-alt me-2"></i>Secure Boot</h5>
+                        <p class="text-secondary">UEFI secure boot support with signed kernels and shim.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-card">
+                        <h5 class="text-secondary"><i class="fas fa-microphone me-2"></i>Live Environment</h5>
+                        <p class="text-secondary">Try before you install. Full live environment with all desktop environments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 my-5">
+        <div class="container py-5">
+            <h2 class="text-center section-title" data-aos="fade-up">System Requirements.</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4" data-aos="zoom-in">
+                    <div class="specs-card">
+                        <i class="fas fa-microchip fa-2x text-primary mb-3"></i>
+                        <h4>CPU</h4>
+                        <p class="text-secondary mb-0">64-bit x86 processor</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="specs-card">
+                        <i class="fas fa-memory fa-2x text-success mb-3"></i>
+                        <h4>RAM</h4>
+                        <p class="text-secondary mb-0">2GB minimum (4GB recommended)</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="specs-card">
+                        <i class="fas fa-hdd fa-2x text-warning mb-3"></i>
+                        <h4>Storage</h4>
+                        <p class="text-secondary mb-0">20GB minimum disk space</p>
                     </div>
                 </div>
             </div>
@@ -254,13 +401,14 @@
         <div class="container">
             <div class="mb-4">
                 <a href="https://github.com/archcosta-os" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://discord.gg/archcosta" class="social-link"><i class="fab fa-discord"></i></a>
+                <a href="https://reddit.com/r/archcosta" class="social-link"><i class="fab fa-reddit"></i></a>
             </div>
             <p class="text-secondary mb-0">&copy; 2026 ArchCosta Linux Team. Proudly open source.</p>
             <p class="small text-muted mt-2">Built for the future of desktop performance.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
