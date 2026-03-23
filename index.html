@@ -216,7 +216,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link px-3" href="#editions">Editions</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#editions">Desktops</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#window-managers">WMs</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#kernels">Kernels</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#features">Features</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="changelog.html">Changelog</a></li>
@@ -238,10 +239,17 @@
                             <i class="fas fa-download me-2"></i>Download ISO
                         </button>
                         <ul class="dropdown-menu">
+                            <li class="dropdown-header fw-bold">Desktop Environments</li>
                             <li><a class="dropdown-item" href="https://github.com/archcosta-os/archcosta/releases"><i class="fas fa-fire me-2"></i>XFCE Edition</a></li>
                             <li><a class="dropdown-item" href="https://github.com/archcosta-os/archcosta/releases"><i class="fas fa-desktop me-2"></i>Plasma Edition</a></li>
                             <li><a class="dropdown-item" href="https://github.com/archcosta-os/archcosta/releases"><i class="fas fa-leaf me-2"></i>Cinnamon Edition</a></li>
-                            <li><a class="dropdown-item" href="https://github.com/archcosta-os/archcosta/releases"><i class="fas fa-pen me-2"></i>MATE Edition</a></li>
+                            <li><a class="dropdown-item" href="https://github.com/archcosta-os/archcosta/releases"><i class="fas fa-pen-fancy me-2"></i>MATE Edition</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li class="dropdown-header fw-bold">Window Managers <span class="badge bg-success ms-1">NEW</span></li>
+                            <li><a class="dropdown-item" href="https://github.com/archcosta-os/archcosta/releases"><i class="fas fa-th-large me-2"></i>i3wm Edition</a></li>
+                            <li><a class="dropdown-item" href="https://github.com/archcosta-os/archcosta/releases"><i class="fas fa-border-all me-2"></i>bspwm Edition</a></li>
+                            <li><a class="dropdown-item" href="https://github.com/archcosta-os/archcosta/releases"><i class="fas fa-grip-lines me-2"></i>Qtile Edition</a></li>
+                            <li><a class="dropdown-item" href="https://github.com/archcosta-os/archcosta/releases"><i class="fas fa-wave-square me-2"></i>Hyprland Edition</a></li>
                         </ul>
                     </div>
                     <a href="https://github.com/archcosta-os" class="btn btn-outline-light btn-lg">
@@ -282,6 +290,43 @@
                         <div class="icon-box"><i class="fas fa-pen-fancy"></i></div>
                         <h4 class="mb-3">MATE Edition</h4>
                         <p class="text-secondary">Traditional desktop environment derived from GNOME 2 for a classic experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="window-managers" class="py-5 my-5" style="background: rgba(0,0,0,0.2);">
+        <div class="container py-5">
+            <h2 class="text-center section-title" data-aos="fade-up">Window Manager Editions.<span class="badge bg-success ms-2" style="font-size: 0.6em;">NEW</span></h2>
+            <p class="text-center text-secondary mb-5" data-aos="fade-up">Lightweight alternatives for power users and minimalists.</p>
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card text-center">
+                        <div class="icon-box"><i class="fas fa-th-large"></i></div>
+                        <h4 class="mb-3">i3wm Edition</h4>
+                        <p class="text-secondary small">Tiling window manager with keyboard-centric workflow. Perfect for developers.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card text-center">
+                        <div class="icon-box"><i class="fas fa-border-all"></i></div>
+                        <h4 class="mb-3">bspwm Edition</h4>
+                        <p class="text-secondary small">Binary space partitioning window manager. Simple and scriptable.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card text-center">
+                        <div class="icon-box"><i class="fas fa-grip-lines"></i></div>
+                        <h4 class="mb-3">Qtile Edition</h4>
+                        <p class="text-secondary small">Python-based tiling manager. Highly customizable with config in Python.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-card text-center">
+                        <div class="icon-box"><i class="fas fa-wave-square"></i></div>
+                        <h4 class="mb-3">Hyprland Edition</h4>
+                        <p class="text-secondary small">Modern Wayland compositor with smooth animations. The future of Linux desktop.</p>
                     </div>
                 </div>
             </div>
